@@ -1,5 +1,5 @@
-# GroupSensitiveCurriculumClassifier
-Classifier extending scikit-learn, that uses curriculum learning based on sensitive groups.
+# CurriculumClassifier
+Classifier extending scikit-learn, that uses curriculum learning.
 
 ## Steps
 - Funkcija ki z RandomForestClassifier razbije senzitivne skupine
