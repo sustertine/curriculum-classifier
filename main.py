@@ -6,6 +6,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 
+from src.classifiers.curriculum_classifier import CurriculumClassifier
 from src.utils.utils import group_by_difficulty
 
 if __name__ == '__main__':
@@ -37,3 +38,4 @@ if __name__ == '__main__':
     X_transformed = pipeline.fit_transform(X).toarray()
 
     split = group_by_difficulty(X_transformed, y, method='avg_confidence', n_groups=3)
+    csf = CurriculumClassifier()
