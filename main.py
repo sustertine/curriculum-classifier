@@ -6,7 +6,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 
-from curriculum_classifier.utils.utils import group_by_difficulty
+from src.utils.utils import group_by_difficulty
 
 if __name__ == '__main__':
     df: pd.DataFrame = fetch_adult(as_frame=True)['data']
