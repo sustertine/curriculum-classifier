@@ -1,6 +1,3 @@
-import sys
-
-import numpy
 import pandas as pd
 from fairlearn.datasets import fetch_adult
 
@@ -9,10 +6,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-from curriculum_classifier.utils.utils import get_learning_order
+from curriculum_classifier.utils.utils import group_by_difficulty
 
 if __name__ == '__main__':
     df: pd.DataFrame = fetch_adult(as_frame=True)['data']
@@ -40,8 +34,6 @@ if __name__ == '__main__':
         ('preprocessor', preprocessor)
     ])
 
-    X_transformed = pipeline.fit_transform(X)
+    X_transformed = pipeline.fit_transform(X).toarray()
 
-    probabilities = get_learning_order(X_transformed, y)
-
-    print(probabilities)
+    split = group_by_difficulty(X_transformed, y, method='avg_confidence', n_groups=3)
