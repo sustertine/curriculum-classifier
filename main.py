@@ -7,7 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 
 from src.classifiers.curriculum_classifier import CurriculumClassifier
-from src.utils.utils import group_by_difficulty
+from src.utils.learning_difficulty import group_by_difficulty
 
 if __name__ == '__main__':
     df: pd.DataFrame = fetch_adult(as_frame=True)['data']

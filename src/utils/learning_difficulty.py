@@ -4,7 +4,8 @@ from sklearn.ensemble import RandomForestClassifier
 from typing import Callable, List, Tuple
 import logging
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - [%(levelname)s]: %(message)s')
+logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(filename)s:%(lineno)s - %(funcName)20s() - [%(levelname)s]: %(message)s')
+logger = logging.getLogger(__name__)
 
 
 def group_by_difficulty(
@@ -53,6 +54,7 @@ def group_by_difficulty(
             difficulty_scores = np.array([avg_class_confidences[class_to_index[class_label]] for class_label in y])
 
     sorted_indices = np.argsort(difficulty_scores)
+    logger.debug(f"Sorted indices: {sorted_indices} of shape {sorted_indices.shape}")
     groups = np.array_split(sorted_indices, n_groups)
 
     return [(X.iloc[group], y[group]) for group in groups]
