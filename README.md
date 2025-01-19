@@ -59,14 +59,16 @@ y_pred = curriculum_classifier.predict(X_test)
 The entropy method calculates the difficulty of a sample based on the entropy of the predicted class probabilities. Entropy measures the uncertainty in the predictions, with higher entropy indicating more uncertainty and thus higher difficulty.
 
 **Formula:**
-\[ \text{Entropy} = -\sum p(x) \log(p(x)) \]
+$$
+\text{Entropy} = -\sum p(x) \log(p(x))
+$$
 where \( p(x) \) is the predicted probability for class \( x \).
 
 **Example:**
 If a sample has predicted probabilities \([0.5, 0.5]\), the entropy is:
-\[
+$$
 - (0.5 \log(0.5) + 0.5 \log(0.5)) = 1.0
-\]
+$$
 
 #### Average Confidence
 The average confidence method calculates the difficulty based on the average confidence of the classifier in its predictions. Lower confidence indicates higher difficulty.
