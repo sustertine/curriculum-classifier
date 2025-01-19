@@ -87,10 +87,8 @@ class CurriculumClassifier(BaseEstimator, ClassifierMixin):
         y_pred : np.ndarray
             The predicted classes.
         """
-        # Check if fit has been called
         check_is_fitted(self, '_is_fitted')
 
-        # Input validation
         X = check_array(X)
 
         return self.base_estimator.predict(X)
