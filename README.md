@@ -27,6 +27,10 @@ This project implements a curriculum classifier that groups data by learning dif
 
 ## Installation
 
+You can install the project dependencies using either `pip` or `poetry`.
+
+### Using pip
+
 1. Clone the repository:
     ```sh
     git clone https://github.com/sustertine/group-sensitive-curriculum-classifier.git
@@ -37,6 +41,27 @@ This project implements a curriculum classifier that groups data by learning dif
     ```sh
     pip install -r requirements.txt
     ```
+
+### Using Poetry
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/sustertine/group-sensitive-curriculum-classifier.git
+    cd group-sensitive-curriculum-classifier
+    ```
+
+2. Ensure Poetry is installed. If not, you can install it by following the instructions [here](https://python-poetry.org/docs/#installation).
+
+3. Install the dependencies:
+    ```sh
+    poetry install
+    ```
+
+4. To activate the virtual environment created by Poetry, run:
+    ```sh
+    poetry shell
+    ```
+
    
 ### Curriculum Classifier Documentation
 
