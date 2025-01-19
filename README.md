@@ -4,6 +4,19 @@
 
 This project implements a curriculum classifier that groups data by learning difficulty and trains a classifier on these groups. The classifier is evaluated on both predictive performance and fairness metrics.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Curriculum Classifier](#curriculum-classifier-documentation)
+  - [Parameters](#parameters)
+  - [Methods](#methods)
+  - [Example](#example)
+- [Difficulty Methods](#difficulty-methods)
+  - [Entropy](#entropy)
+  - [Average Confidence](#average-confidence)
+
 ## Project Structure
 
 - `src/classifiers/curriculum_classifier.py`: Contains the implementation of the `CurriculumClassifier`.
@@ -25,7 +38,7 @@ This project implements a curriculum classifier that groups data by learning dif
     pip install -r requirements.txt
     ```
    
-### Curriculum Classifier
+### Curriculum Classifier Documentation
 
 The `CurriculumClassifier` is a custom classifier that groups data by learning difficulty and trains a base estimator on these groups.
 
