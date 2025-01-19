@@ -2,12 +2,12 @@ import logging
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.validation import check_X_y, check_is_fitted, check_array
 from sklearn.utils.multiclass import unique_labels
-from typing import Callable, List, Tuple
+from typing import Callable
 import numpy as np
 import pandas as pd
 from src.utils.learning_difficulty import group_by_difficulty
 
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(filename)s:%(lineno)s - %(funcName)20s() - [%(levelname)s]: %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(filename)s:%(lineno)s - %(funcName)20s() - [%(levelname)s]: %(message)s')
 logger = logging.getLogger(__name__)
 
 class CurriculumClassifier(BaseEstimator, ClassifierMixin):
@@ -59,13 +59,10 @@ class CurriculumClassifier(BaseEstimator, ClassifierMixin):
         self : object
             Returns self.
         """
-        # Check that X and y have correct shape
         X, y = check_X_y(X, y)
 
-        # Split the dataset into groups based on difficulty
         groups = group_by_difficulty(X, y, method=self.method, custom_method=self.custom_method, n_groups=self.n_groups)
 
-        # Fit the base estimator on each group using partial_fit
         for X_group, y_group in groups:
             logger.debug(f"Fitting group with {len(X_group)} samples")
             self.base_estimator.partial_fit(X_group, y_group, classes=unique_labels(y))
